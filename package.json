@@ -1,0 +1,38 @@
+{
+  "name": "greenmove-processing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "build": "webpack build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenmove-io/greenmove-processing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greenmove-io/greenmove-processing/issues"
+  },
+  "homepage": "https://github.com/greenmove-io/greenmove-processing#readme",
+  "dependencies": {
+    "@turf/boolean-point-in-polygon": "^6.5.0",
+    "@turf/helpers": "^6.5.0",
+    "fast-csv": "^4.3.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.4",
+    "core-js": "^3.21.1",
+    "nodemon": "^2.0.15",
+    "nodemon-webpack-plugin": "^4.7.1",
+    "regenerator-runtime": "^0.13.9",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
