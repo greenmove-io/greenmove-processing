@@ -11,6 +11,11 @@ module.exports = {
         test: /\.(js)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.(geojson)$/,
+        exclude: /node_modules/,
+        loader: 'json-loader'
       }
     ]
   },

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js",
+    "dev": "webpack --watch",
     "build": "webpack build"
   },
   "repository": {
@@ -20,7 +20,8 @@
   "dependencies": {
     "@turf/boolean-point-in-polygon": "^6.5.0",
     "@turf/helpers": "^6.5.0",
-    "fast-csv": "^4.3.6"
+    "fast-csv": "^4.3.6",
+    "polygon-lookup": "^2.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -28,6 +29,7 @@
     "@babel/preset-env": "^7.16.11",
     "babel-loader": "^8.2.4",
     "core-js": "^3.21.1",
+    "json-loader": "^0.5.7",
     "nodemon": "^2.0.15",
     "nodemon-webpack-plugin": "^4.7.1",
     "regenerator-runtime": "^0.13.9",
