@@ -16,7 +16,19 @@ module.exports = {
         test: /\.(geojson)$/,
         exclude: /node_modules/,
         loader: 'json-loader'
-      }
+      },
+      {
+        test: /\.(txt|csv|mmdb)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: "[path][name].[ext]",
+              emitFile: true,
+            },
+          },
+        ],
+      },
     ]
   },
   resolve: {
