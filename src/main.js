@@ -1,3 +1,3 @@
-import { ProcessNPTA, ProcessATCO } from './utils';
+import { ProcessATCO } from './utils';
 
 ProcessATCO();
