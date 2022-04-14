@@ -18,21 +18,13 @@ module.exports = {
         loader: 'json-loader'
       },
       {
-        test: /\.(txt|csv|mmdb)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: "[path][name].[ext]",
-              emitFile: true,
-            },
-          },
-        ],
+        test: /\.(csv|tsv)$/i,
+        use: ['csv-loader'],
       },
     ]
   },
   resolve: {
-    extensions: ['*', '.js']
+    extensions: ['*', '.js', '.csv']
   },
   target: 'node',
   output: {

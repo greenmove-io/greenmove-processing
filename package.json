@@ -18,8 +18,7 @@
   },
   "homepage": "https://github.com/greenmove-io/greenmove-processing#readme",
   "dependencies": {
-    "axios": "^0.26.1",
-    "fast-csv": "^4.3.6"
+    "axios": "^0.26.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -27,7 +26,7 @@
     "@babel/preset-env": "^7.16.11",
     "babel-loader": "^8.2.4",
     "core-js": "^3.21.1",
-    "file-loader": "^6.2.0",
+    "csv-loader": "^3.0.3",
     "json-loader": "^0.5.7",
     "nodemon": "^2.0.15",
     "nodemon-webpack-plugin": "^4.7.1",

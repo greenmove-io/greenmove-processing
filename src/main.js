@@ -1,3 +1,3 @@
-import { ProcessATCO, ProcessNPTA, ProcessGEOJSON } from './utils';
+import { ProcessVehicleData } from './utils';
 
-ProcessNPTA();
+ProcessVehicleData();
