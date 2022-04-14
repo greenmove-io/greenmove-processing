@@ -18,11 +18,8 @@
   },
   "homepage": "https://github.com/greenmove-io/greenmove-processing#readme",
   "dependencies": {
-    "@turf/boolean-point-in-polygon": "^6.5.0",
-    "@turf/helpers": "^6.5.0",
     "axios": "^0.26.1",
-    "fast-csv": "^4.3.6",
-    "polygon-lookup": "^2.6.0"
+    "fast-csv": "^4.3.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

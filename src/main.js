@@ -1,3 +1,3 @@
-import { ProcessATCO } from './utils';
+import { ProcessATCO, ProcessNPTA, ProcessGEOJSON } from './utils';
 
-ProcessATCO();
+ProcessNPTA();
