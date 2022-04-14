@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/greenmove-io/greenmove-processing#readme",
   "dependencies": {
-    "axios": "^0.26.1"
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",

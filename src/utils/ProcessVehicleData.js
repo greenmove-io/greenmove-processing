@@ -1,17 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 
-import { fetchCities } from './FetchRequests';
+import { fetchCities, pushVehicleData } from './APIRequests';
 import VEHICLE_DATA from '../assets/hidden/Registered_Vehicles_2021_Q3.csv';
 
 const ProcessVehicleData = async () => {
   let MATCHED_DATA = [];
 
-  // console.log(VEHICLE_DATA);
   console.log('Processing data...');
   let cities = await fetchCities().catch(err => console.error(err));
-  // console.log(cities);
-  // console.log(VEHICLE_DATA);
   cities.map(city => {
     let postcodes = city["postcode_districts"].split(',');
     let temp = city;
@@ -35,10 +32,12 @@ const ProcessVehicleData = async () => {
     }
   });
 
-  console.log(MATCHED_DATA);
+  // console.log(MATCHED_DATA);
   console.log('City Vehicle count amount: ', MATCHED_DATA.length);
 
-  // let data = VEHICLE_DATA.find(x => x[0].toLowerCase() === 'AB25'.toLowerCase());
-  // console.log(data);
+  MATCHED_DATA.map(async city => {
+    let vehicle_count = city.car_count + city.motorcycle_count + city.other_count;
+    const response = await pushVehicleData(city.city_id, vehicle_count).catch(err => console.error(err));
+  });
 }
 export default ProcessVehicleData;
