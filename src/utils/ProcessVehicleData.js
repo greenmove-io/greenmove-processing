@@ -10,7 +10,7 @@ const ProcessVehicleData = async () => {
   console.log('Processing data...');
   let cities = await fetchCities().catch(err => console.error(err));
   cities.map(city => {
-    let postcodes = city["postcode_districts"].split(',');
+    let postcodes = city["postcode_districts"];
     let temp = city;
     temp.car_count = 0;
     temp.motorcycle_count = 0;
@@ -19,11 +19,9 @@ const ProcessVehicleData = async () => {
     postcodes.map(postcode => {
       let data = VEHICLE_DATA.find(x => x[0].toLowerCase() === postcode.toLowerCase());
       if(data !== undefined) {
-        if(!isNaN(data[1]) && !isNaN(data[2]) && !isNaN(data[3])) {
-          temp.car_count += Number(data[1]);
-          temp.motorcycle_count += Number(data[2]);
-          temp.other_count += Number(data[3]);
-        }
+        if(!isNaN(data[1])) temp.car_count += Number(data[1]);
+        if(!isNaN(data[2])) temp.motorcycle_count += Number(data[2]);
+        if(!isNaN(data[3])) temp.other_count += Number(data[3]);
       }
     });
 
@@ -37,7 +35,8 @@ const ProcessVehicleData = async () => {
 
   MATCHED_DATA.map(async city => {
     let vehicle_count = city.car_count + city.motorcycle_count + city.other_count;
-    const response = await pushVehicleData(city.city_id, vehicle_count).catch(err => console.error(err));
+    const response = await pushVehicleData(city.place_id, vehicle_count).catch(err => console.error(err));
+    console.log(response.data);
   });
 }
 export default ProcessVehicleData;
