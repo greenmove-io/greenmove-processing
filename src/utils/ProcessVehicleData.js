@@ -33,10 +33,12 @@ const ProcessVehicleData = async () => {
   // console.log(MATCHED_DATA);
   console.log('City Vehicle count amount: ', MATCHED_DATA.length);
 
-  MATCHED_DATA.map(async city => {
-    let vehicle_count = city.car_count + city.motorcycle_count + city.other_count;
-    const response = await pushVehicleData(city.place_id, vehicle_count).catch(err => console.error(err));
-    console.log(response.data);
+  MATCHED_DATA.map(async (city, i) => {
+    setTimeout(async () => {
+      let vehicle_count = city.car_count + city.motorcycle_count + city.other_count;
+      const response = await pushVehicleData(city.place_id, vehicle_count).catch(err => console.error(err));
+      console.log(response);
+    }, 800 * city.length - 800 * i);
   });
 }
 export default ProcessVehicleData;

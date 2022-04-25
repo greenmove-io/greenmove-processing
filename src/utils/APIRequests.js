@@ -37,7 +37,7 @@ export const pushVehicleData = async (id, data) => {
     }).then(results => {
       return res(results.data);
     }).catch(err => {
-      return rej(`Error with pushing vehicle data: ${err.message}`);
+      return rej(err.data);
     });
   });
 }
