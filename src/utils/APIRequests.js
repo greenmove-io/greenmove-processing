@@ -5,11 +5,20 @@ const {
   ACCESS_TOKEN
 } = require('../config');
 
-export const fetchCities = async (isGEOJSON) => {
+export const fetchCities = async () => {
   return new Promise((res, rej) => {
-    axios.get(`${PUBLIC_API_URL}/places/all`, {
+    axios.get(`${PUBLIC_API_URL}/places/all`).then(results => {
+      return res(results.data.data);
+    }).catch(err => {
+      console.error(err);
+      return rej(`Error with fetching cities: ${err.message}`);
+    });
+  });
+}
 
-    }).then(results => {
+export const fetchCity = async (id) => {
+  return new Promise((res, rej) => {
+    axios.get(`${PUBLIC_API_URL}/places/${id}`).then(results => {
       return res(results.data.data);
     }).catch(err => {
       console.error(err);
@@ -37,7 +46,7 @@ export const pushVehicleData = async (id, data) => {
     }).then(results => {
       return res(results.data);
     }).catch(err => {
-      return rej(err.data);
+      return rej(err);
     });
   });
 }
